@@ -1,0 +1,229 @@
+:root {
+    --naranja: #ff6803;
+    --fondo: #141414;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .contenedor {
+    width: 90%;
+    margin: auto;
+  }
+  
+  header {
+    padding: 30px 0;
+  
+    .contenedor {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .logotipo {
+      font-family: 'Bebas Neue', cursive;
+      font-weight: normal;
+      color: var(--naranja);
+      font-size: 40px;
+    }
+  
+    nav a {
+      color: #AAA;
+      text-decoration: none;
+      margin-right: 20px;
+  
+      &:hover,
+      &.activo {
+        color: #FFF;
+      }
+    }
+  }
+  
+  .pelicula-principal {
+    font-size: 16px;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/backdrop.jpg);
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+  
+    .contenedor {
+      margin: 0 auto;
+      margin-bottom: 6.25em;
+    }
+  
+    .titulo {
+      font-weight: 600;
+      font-size: 3.12em;
+      margin-bottom: 0.4em;
+    }
+  
+    .descripcion {
+      font-weight: normal;
+      font-size: 1em;
+      line-height: 1.75em;
+      max-width: 50%;
+      margin-bottom: 1.25em;
+    }
+  
+    .boton {
+      background: rgba(0,0,0, 0.5);
+      border: none;
+      border-radius: 0.31em;
+      padding: 0.93em 1.87em;
+      color: #fff;
+      margin-right: 1.25em;
+      cursor: pointer;
+      transition: .3s ease all;
+      font-size: 1.12em;
+  
+      &:hover {
+        background: #fff;
+        color: #000;
+      }
+  
+      i {
+        margin-right: 1.25em;
+      }
+    }
+  }
+  
+  .contenedor-titulo-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  
+    h3 {
+      color: #fff;
+      font-size: 30px;
+    }
+  
+    .indicadores button {
+      background: #fff;
+      height: 3px;
+      width: 10px;
+      cursor: pointer;
+      border: none;
+      margin-right: 2px;
+  
+      &:hover,
+      &.activo {
+        background: red;
+      }
+    }
+  }
+  
+  .peliculas-recomendadas {
+    margin-bottom: 70px;
+  
+    .contenedor-principal {
+      display: flex;
+      align-items: center;
+      position: relative;
+  
+      .flecha-izquierda,
+      .flecha-derecha {
+        position: absolute;
+        border: none;
+        background: rgba(0,0,0,0.3);
+        font-size: 40px;
+        height: 50%;
+        top: calc(50% - 25%);
+        line-height: 40px;
+        width: 50px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 500;
+        transition: .2s ease all;
+  
+        &:hover {
+          background: rgba(0,0,0, .9);
+        }
+      }
+  
+      .flecha-izquierda {
+        left: 0;
+      }
+  
+      .flecha-derecha {
+        right: 0;
+      }
+    }
+  
+    .contenedor-carousel {
+      width: 100%;
+      padding: 20px 0;
+      overflow: hidden;
+      scroll-behavior: smooth;
+  
+      .carousel {
+        display: flex;
+        flex-wrap: nowrap;
+  
+        .pelicula {
+          min-width: 20%;
+          transition: .3s ease all;
+          box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+  
+          &.hover {
+            transform: scale(1.2);
+            transform-origin: center;
+          }
+  
+          img {
+            width: 100%;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    header .logotipo {
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+  
+    header .contenedor {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .pelicula-principal {
+      font-size: 14px;
+  
+      .descripcion {
+        max-width: 100%;
+      }
+  
+      .boton,
+      .indicadores,
+      .flecha-izquierda,
+      .flecha-derecha {
+        display: none;
+      }
+    }
+  
+    .peliculas-recomendadas .contenedor-carousel {
+      overflow: visible;
+  
+      .carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+  
