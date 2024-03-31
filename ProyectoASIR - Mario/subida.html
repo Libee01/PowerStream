@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario para agregar video</title>
+</head>
+<body>
+    <h2>Agregar Video</h2>
+    <form action="procesar_formulario.php" method="POST" enctype="multipart/form-data">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" required><br><br>
+
+        <input type="hidden" name="MAX_FILE_SIZE" value="9999999">
+        <input type="file" placeholder="Imagen" name="img" id="imagen" class="usu" required><br><br>
+
+        <input type="hidden" name="MAX_FILE_SIZE" value="9999999">
+        <input type="file" placeholder="Imagen2" name="img2" id="imagen2" class="usu" required><br><br>
+
+        <label for="descripcion">Descripción:</label><br>
+        <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+        
+        <label for="categoria">Categoría:</label><br>
+        <select id="categoria" name="categoria" required>
+            <option value="accion">Acción</option>
+            <option value="terror">Terror</option>
+            <option value="drama">Drama</option>
+            <option value="romantica">Romantica</option>
+            <option value="comedia">Comedia</option>
+            <option value="aventuras">Aventuras</option>
+        </select><br><br>
+        <input type="submit" value="Agregar">
+    </form>
+</body>
+</html>
