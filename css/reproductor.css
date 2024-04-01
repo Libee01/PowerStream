@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+body{
+    background-image: url(../img/fondointenso.jpg);
+    font-family: "Bebas Neue", sans-serif;
+    color: #FFFFFF;
+    
+}
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    border: 0px solid red;
+}
+
+.header{
+    align-items:center;
+    border:solid red 0px;
+    border: 0px solid red;
+}
+.menu{
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+    
+}
+.menu-container{
+    border:solid yellow 0px;
+    clear: both;
+    width: 100%;
+}
+.logo{
+    font-size: 35px;
+    color:#FFFFFF;
+}
+.navbar{
+    
+    margin-right: 10em;
+}
+.menu .navbar ul li{
+    position: relative;
+    float:left;
+}
+.menu .navbar ul{
+    margin-left: 25em;
+    margin-right: 17em;
+}
+.menu .navbar ul li a{
+    font-size: 22px;
+    padding: 20px;
+    color: #FFFFFF;
+    display: block;
+}
+
+.menu .navbar ul li a:hover{
+    color: red;
+}
+#menu{
+    display: none;
+}
+.menu-icono{
+    width:25px;
+}
+.menu label{
+    cursor: pointer;
+    display: none;
+}
+#logout{
+    width: 5em;
+    margin-left: 8em;
+}
+
+.header-1{
+    
+    max-width: 1800px;
+    border:solid green 0px;
+    margin-top: 6em;
+    margin-left: 6em;
+    width: 100em;
+    height: 45em;
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: center calc(10% + 20px);
+    text-align: center;
+    clear:both;
+    
+    
+}
+.texto{
+    clear: both;
+    border: 0px solid red;
+    height: auto; /* Puedes ajustar la altura según sea necesario */
+    width: 100em;
+    margin-left: 6em;
+    margin-top: 1em;
+    overflow: hidden; /* Evita que el contenido se salga del div */
+    padding: 0.5em; /* Añade un espacio interno para el contenido */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.texto h2{
+    font-size: 3em;
+}
+
+.texto p{
+    font-size: 1.3em;
+}
+
+.play{
+    width:5em;
+    margin-top: 19em;
+    border:solid green 0px;
+
+}
+
+.nompubli{
+    width:20em;
+    margin-top: 5em;
+    margin-right: 70em;
+    clear:both;
+}
+
+.btn-1{
+    display: inline-block;
+    padding: 7px 20px;
+    background-color: #FF2F28;
+    color: #FFFFFF;
+    font-size: 20px ;
+    margin-left: 1em;
+
+}
+
+.btn-2{
+    width: 110px;
+    display: inline-block;
+    padding: 7px 21px;
+    background-color: #FF2F28;
+    font-size: 20px;
+    margin-top: 30px;
+    color:#cfcfcf;
+    border-radius: 0.5em;
+
+}
+.btn-2:hover{
+    background-color: #cfcfcf;
+    color: #FF2F28;
+}
+.movies{
+    padding: 50px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    font-size: 35px;
+    margin-bottom: 20px;
+
+}
+hr{
+    border: 1px solid #FF2F28;
+    width: 100%;
+    margin-bottom: 40px;
+}
