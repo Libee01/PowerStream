@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $id_usuario = $_SESSION['userid'];
+    $plan = $_SESSION['plan'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +24,7 @@
                 <ul>
                     <li><a href="premium.php">Películas</a></li>
                     <li><a href="premiumserie.php">Series</a></li>
-                    <li><a href="milista.php">Mi lista</a></li>
+                    <li><a href="lista.php">Mi lista</a></li>
                 </ul>
             </nav>
             <a href="index.php"><img id="logout" src="img/logout.png"></a>

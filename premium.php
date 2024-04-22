@@ -1,6 +1,7 @@
 <?php
     session_start();
     $id_usuario = $_SESSION['userid'];
+    $plan = $_SESSION['plan'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,7 +90,9 @@
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
                                     <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>', 
+                                    '<?php echo $row['nom_publi']; ?>', '<?php echo $row['tipo']; ?>')">Añadir a la lista</div>
                                 </div>
                                 
                             </div>
@@ -134,7 +137,9 @@
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
                                     <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista('<?php echo $row['id']; ?>', '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>', 
+                                    '<?php echo $row['nom_publi']; ?>', '<?php echo $row['tipo']; ?>')">Añadir a la lista</div>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +183,9 @@
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
                                     <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>', 
+                                    '<?php echo $row['nom_publi']; ?>', '<?php echo $row['tipo']; ?>')">Añadir a la lista</div>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +227,9 @@
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
                                     <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>', 
+                                    '<?php echo $row['nom_publi']; ?>', '<?php echo $row['tipo']; ?>')">Añadir a la lista</div>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +271,9 @@
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
                                     <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>', 
+                                    '<?php echo $row['nom_publi']; ?>', '<?php echo $row['tipo']; ?>')">Añadir a la lista</div>
                                 </div>
                             </div>
                         </div>
@@ -305,7 +316,9 @@
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
                                     <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>', 
+                                    '<?php echo $row['nom_publi']; ?>', '<?php echo $row['tipo']; ?>')">Añadir a la lista</div>
                                 </div>
                             </div>
                         </div>

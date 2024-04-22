@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mensajes.css">
-    <script src="../js/registro.js"></script>
+    <script src="js/registro.js"></script>
     <title>Registro usuario</title>
 </head>
 <body>
@@ -43,6 +43,8 @@
             {
                 echo "<div class='borrado'>Usuario añadido correctamente</div>";
                 echo "<div class='mensaje'><img src='../img/arriba1.png' class='ok'></div>";
+                // Agrega un script de JavaScript para redirigir después de 5 segundos
+                echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
             }
             else
             {

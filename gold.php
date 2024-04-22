@@ -1,6 +1,7 @@
 <?php
     session_start();
     $id_usuario = $_SESSION['userid'];
+    $plan = $_SESSION['plan'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

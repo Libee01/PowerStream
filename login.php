@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($pass, $row['password'])) {
                 // Iniciar la sesión
                 session_start();
-                $plan = $row['plan'];
+                $_SESSION['plan'] = $row['plan'];
                 $_SESSION['loggedin'] = true;
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['userid'] = $row['ID_usuario'];
@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['expire'] = $_SESSION['start'] + (1 * 60);
                 
                 // Redirección basada en el tipo de usuario
-                if ($plan == 'basico') {
+                if ($_SESSION['plan'] == 'basico') {
                     header("Location: basico.php");
-                } elseif ($plan == 'gold') {
+                } elseif ($_SESSION['plan'] == 'gold') {
                     header("Location: gold.php");
-                } elseif ($plan == 'premium') {
+                } elseif ($_SESSION['plan'] == 'premium') {
                     header("Location: premium.php");
                 }
             }
