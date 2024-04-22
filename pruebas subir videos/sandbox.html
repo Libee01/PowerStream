@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Video</title>
+    <link rel="stylesheet" href="../css/sandbox.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Subir Vídeo</h2>
+        <div class="login-form2" id="loginForm2">
+            <form action="sandbox.php" method="post" enctype="multipart/form-data">
+                <label for="titulo">Título:</label><br>
+                <input type="text" id="titulo" name="titulo"><br><br>
+
+                <label for="video">Archivo de video:</label><br>
+                <input type="file" id="video" name="video"><br>
+
+                <label for="portada">Imagen de portada:</label><br>
+                <input type="file" id="portada" name="portada"><br><br>
+            
+                <label for="descripcion">Descripción:</label><br>
+                <textarea id="descripcion" name="descripcion"></textarea><br><br>
+
+                <label for="tipo">Tipo:</label><br>
+                <input type="text" id="tipo" name="tipo"><br><br>
+
+                <label for="plan">Plan:</label><br>
+                <input type="text" id="plan" name="plan"><br><br>
+
+                <label for="genero">Género:</label><br>
+                <input type="text" id="genero" name="genero"><br><br>
+
+                <button type="submit">Subir vídeo</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
