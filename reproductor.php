@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +9,6 @@
 </head>
 <body>
     <?php
-
     // Verificar si se proporcionó un ID de película
     if (isset($_GET['id'])) {
         // Obtener el ID de la película
@@ -21,6 +18,7 @@
         or die ("No se puede conectar con el servidor");
 
         mysqli_select_db ($conn, "powerstream") or die ("No se puede conectar a la base de datos");
+
         // Consulta para obtener los detalles de la película específica
         $sql = "SELECT * FROM prueba WHERE id = $id_pelicula";
         $result = $conn->query($sql);
@@ -30,21 +28,20 @@
             $row = $result->fetch_assoc();
             echo '<header class="header">';
             echo '    <div class="menu container">';
-            echo '        <a href="#" class="logo">PowerStream</a>';
+            echo '        <a href="#" class="logo" onclick="goBack()">PowerStream</a>'; // Modificación aquí
             echo '        <input type="checkbox" id="menu">';
             echo '        <label for="menu">';
             echo '            <img src="img2/menu.png" class="menu-icono" alt="menu">';
             echo '        </label>';
             echo '        <nav class="navbar">';
             echo '            <ul>';
-            echo '                <li><a href="index.php">Películas</a></li>';
-            echo '                <li><a href="series.php">Series</a></li>';
+            echo '                <li><a href="#" onclick="goBack()">Películas</a></li>';
+            echo '                <li><a href="#" onclick="goBack()">Series</a></li>';
             echo '            </ul>';
             echo '        </nav>';
             echo '        <a href="index.php"><img id="logout" src="img/logout.png"></a>';
             echo '    </div>';
             
-
             echo '<div class="header-1" style="background-image:url(php/img/' . $row['img_publi'] . '); ">';
             echo '<img class="play" src="img/play.png">';
             echo '<br>';
@@ -63,5 +60,10 @@
         echo "No se proporcionó ID de película.";
     }
     ?>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>
