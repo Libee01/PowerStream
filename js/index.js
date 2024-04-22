@@ -31,7 +31,39 @@ function startSlide() {
     interval = setTimeout(showSlides, 5000);
 }
 
-// Cargar más películas de acción
+/*Script para mostrar más peliculas pulsando el botón "Cargar más"
+
+function cargarMasItems(btn, cantidadInicial, claseObjetivo) {
+    let currentItem = cantidadInicial;
+
+    btn.onclick = () => {
+        let contenedores = [...document.querySelectorAll("." + claseObjetivo)];
+        for (let i = currentItem; i < currentItem + 4 && i < contenedores.length; i++) {
+            contenedores[i].style.display = 'inline-block';   
+        }
+        currentItem += 4;
+        if (currentItem >= contenedores.length || currentItem >= 6) {
+            btn.style.display = 'none';
+            currentItem = cantidadInicial;
+        }
+    };
+}
+
+let loadMoreBtn1 = document.querySelector('#load-more-1');
+let loadMoreBtn2 = document.querySelector('#load-more-2');
+let loadMoreBtn3 = document.querySelector('#load-more-3');
+let loadMoreBtn4 = document.querySelector('#load-more-4');
+let loadMoreBtn5 = document.querySelector('#load-more-5');
+let loadMoreBtn6 = document.querySelector('#load-more-6');
+// Agrega más botones según sea necesario
+
+cargarMasItems(loadMoreBtn1, 4, "box-container-1 .box-1");
+cargarMasItems(loadMoreBtn2, 4, "box-container-2 .box-2");
+cargarMasItems(loadMoreBtn3, 4, "box-container-3 .box-3");
+cargarMasItems(loadMoreBtn4, 4, "box-container-4 .box-4");
+cargarMasItems(loadMoreBtn5, 4, "box-container-5 .box-5");
+cargarMasItems(loadMoreBtn6, 4, "box-container-6 .box-6");
+// Llama a la función para cada botón, establece la cantidad inicial de elementos y la clase objetivo*/
 
 function cargarMasItems(btn, cantidadInicial, claseObjetivo, btnMenosId) {
     let currentItem = cantidadInicial;
@@ -82,17 +114,4 @@ cargarMasItems(loadMoreBtn4, 4, "box-container-4 .box-4", "load-less-4");
 cargarMasItems(loadMoreBtn5, 4, "box-container-5 .box-5", "load-less-5");
 cargarMasItems(loadMoreBtn6, 4, "box-container-6 .box-6", "load-less-6");
 
-
-function añadirALista(id,titulo, portada, categoria, img_publi, nom_publi, tipo) {
-    // Realizar una solicitud al servidor para añadir la película a la lista de reproducción
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "guardar_pelicula.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText); // Mostrar la respuesta del servidor (opcional)
-        }
-    };
-    // Enviar datos a guardar_pelicula.php
-    xhr.send("id=" + id + "&titulo=" + titulo + "&portada=" + portada + "&categoria=" + categoria + "&img_publi=" + img_publi + "&nom_publi=" + nom_publi + "&tipo=" + tipo);
-}
+    

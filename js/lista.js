@@ -66,33 +66,24 @@ let loadMoreBtn1 = document.querySelector('#load-more-1');
 let loadLessBtn1 = document.querySelector('#load-less-1');
 let loadMoreBtn2 = document.querySelector('#load-more-2');
 let loadLessBtn2 = document.querySelector('#load-less-2');
-let loadMoreBtn3 = document.querySelector('#load-more-3');
-let loadLessBtn3 = document.querySelector('#load-less-3');
-let loadMoreBtn4 = document.querySelector('#load-more-4');
-let loadLessBtn4 = document.querySelector('#load-less-4');
-let loadMoreBtn5 = document.querySelector('#load-more-5');
-let loadLessBtn5 = document.querySelector('#load-less-5');
-let loadMoreBtn6 = document.querySelector('#load-more-6');
-let loadLessBtn6 = document.querySelector('#load-less-6');
 
 cargarMasItems(loadMoreBtn1, 4, "box-container-1 .box-1", "load-less-1");
 cargarMasItems(loadMoreBtn2, 4, "box-container-2 .box-2", "load-less-2");
-cargarMasItems(loadMoreBtn3, 4, "box-container-3 .box-3", "load-less-3");
-cargarMasItems(loadMoreBtn4, 4, "box-container-4 .box-4", "load-less-4");
-cargarMasItems(loadMoreBtn5, 4, "box-container-5 .box-5", "load-less-5");
-cargarMasItems(loadMoreBtn6, 4, "box-container-6 .box-6", "load-less-6");
 
 
-function añadirALista(id,titulo, portada, categoria, img_publi, nom_publi, tipo) {
-    // Realizar una solicitud al servidor para añadir la película a la lista de reproducción
+
+function QuitardeLista(id) {
+    // Realizar una solicitud al servidor para eliminar la película de la lista
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "guardar_pelicula.php", true);
+    xhr.open("POST", "borrar_pelicula.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             console.log(xhr.responseText); // Mostrar la respuesta del servidor (opcional)
+            // Recargar la página después de eliminar la película de la lista
+            location.reload();
         }
     };
-    // Enviar datos a guardar_pelicula.php
-    xhr.send("id=" + id + "&titulo=" + titulo + "&portada=" + portada + "&categoria=" + categoria + "&img_publi=" + img_publi + "&nom_publi=" + nom_publi + "&tipo=" + tipo);
+    // Enviar datos a borrar_pelicula.php
+    xhr.send("id=" + id);
 }
