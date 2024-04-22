@@ -1,0 +1,67 @@
+body {
+    background-image: url(../img/fondointenso.jpg);
+    background-size: cover;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 5em;
+}
+
+.login-form2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: rgb(48, 240, 240);
+}
