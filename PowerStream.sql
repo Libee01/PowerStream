@@ -1,7 +1,7 @@
 -- Base de datos de PowerStream
 drop database powerstream;
 
-create database powerstream if not exists;
+create database powerstream;
 
 use powerstream;
 
@@ -39,7 +39,7 @@ DELIMITER //
 
 CREATE PROCEDURE prueba1()
 BEGIN
-    SELECT id_video, titulo,LEFT(descripcion, 5), tipo, genero, fecha_subida, video, img_portada, img_publi, nom_publi, FROM videos;
+    SELECT id_video, titulo,LEFT(descripcion, 5), tipo, genero, fecha_subida, video, img_portada, img_publi, nom_publi FROM videos;
 END //
 
 DELIMITER ;
