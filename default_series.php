@@ -1,15 +1,6 @@
 <?php
-    session_start();
-    $id_usuario = $_SESSION['userid'];
-    $plan = $_SESSION['plan'];
-    if ($plan == 'premium')
-    {
-        
-    }
-    else
-    {
-        header("Location: index.php");
-    }
+session_start();
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,30 +8,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerStream</title>
-    <link rel="stylesheet" href="css/premium.css">
+    <link rel="stylesheet" href="css/inicio.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header class="header">
         <div class="menu container">
-            <a href="premium.php" class="logo">PowerStream</a>
+            <a href="index.php" class="logo">PowerStream</a>
             <input type="checkbox" id="menu">
             <label for="menu">
                 <img src="img2/menu.png" class="menu-icono" alt="menu">
             </label>
             <nav class="navbar">
                 <ul>
-                    <li><a href="premium.php">Películas</a></li>
-                    <li><a href="premiumserie.php">Series</a></li>
-                    <li><a href="lista.php">Mi lista</a></li>
+                    <li><a href="index.php">Películas</a></li>
+                    <li><a href="default_series.php">Series</a></li>
+                    <li><a href="registrarse.html">Mi lista</a></li>
                 </ul>
             </nav>
-            <a href="index.php"><img id="logout" src="img/logout.png"></a>
+            <a href="inicio_sesion.html" class="btn-1">Login</a>
+            <a href="registrarse.html" class="btn-1">Registro</a>
         </div>
         <div class="header-content container slides">
                 <?php 
             // Incluir el archivo PHP que realiza la consulta SQL
-            include 'php/imagenespeliculas.php'; 
+            include 'php/imagenesseries.php'; 
             
             // Verificar si hay resultados de la consulta antes de mostrar los datos
             if ($result->num_rows > 0) { 
@@ -58,7 +50,7 @@
                                     <?php } ?>
                                         <img  src="img2/<?php echo $row['nom_publi']; ?>">                                  
                                         <div>
-                                        <a class="btn-2" href="reproductor.php?id_video=<?php echo $row['id_video']; ?>">Ver ahora</a> 
+                                        <a class="btn-2" href="inicio_sesion.html">Ver ahora</a> 
                                         </div>
                                 </div>
                         <?php 
@@ -75,11 +67,11 @@
         </div>
     </header>
     <section class="movies container">
-        <h2>Peliculas de Acción</h2>
+        <h2>Series de Acción</h2>
         <hr>
         <div id="peliculas-accion" class="box-container-1">
-        <?php 
-
+            <?php 
+    
     // Verificar si hay resultados de la consulta antes de mostrar los datos
     if ($result_accion->num_rows > 0) { 
             ?>
@@ -88,14 +80,17 @@
                     $i = 0; 
                     while ($row = $result_accion->fetch_assoc()) { 
             ?>
-                        <div class="box-1 <?php if($i == 0) echo 'active'; ?>">
+                        <?php if($i == 0) { ?>
+                        <div class="box-1 active">
+                        <?php } else { ?>
+                        <div class="box-1">
+                        <?php } ?>
                             <div class="content">
                                 <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
-                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
+                                    <a href="inicio_sesion.html"><div class="reproducir">Reproducir</div></a>
+                                     <a href="inicio_sesion.html"><div class="reproducir">Añadir a la lista</div></a>
                                 </div>
                             </div>
                         </div>
@@ -115,10 +110,11 @@
 
         <div class="load-more" id="load-more-1">Cargar más</div>
         <div class="load-less" id="load-less-1">Cargar menos</div>
+
     </section>
-    
+
     <section class="movies container">
-        <h2>Peliculas de Terror</h2>
+        <h2>Series de Terror</h2>
         <hr>
         <div id="peliculas-accion" class="box-container-2">
         <?php 
@@ -133,13 +129,11 @@
             ?>
                         <div class="box-2 <?php if($i == 0) echo 'active'; ?>">
                             <div class="content">
-                                <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
-                               
+                                    <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
-                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
+                                    <a href="inicio_sesion.html"><div class="reproducir">Reproducir</div></a>
+                                     <a href="inicio_sesion.html"><div class="reproducir">Añadir a la lista</div></a>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +156,7 @@
     </section>
 
     <section class="movies container">
-        <h2>Peliculas Románticas</h2>
+        <h2>Series Romanticas</h2>
         <hr>
         <div id="peliculas-accion" class="box-container-3">
         <?php 
@@ -178,12 +172,10 @@
                         <div class="box-3 <?php if($i == 0) echo 'active'; ?>">
                             <div class="content">
                                 <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
-                               
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
-                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
+                                    <a href="inicio_sesion.html"><div class="reproducir">Reproducir</div></a>
+                                     <a href="inicio_sesion.html"><div class="reproducir">Añadir a la lista</div></a>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +198,7 @@
     </section>
 
     <section class="movies container">
-        <h2>Peliculas de Comedia</h2>
+        <h2>Series de Comedia </h2>
         <hr>
         <div id="peliculas-accion" class="box-container-4">
         <?php 
@@ -222,12 +214,10 @@
                         <div class="box-4 <?php if($i == 0) echo 'active'; ?>">
                             <div class="content">
                                 <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
-                               
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
-                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
+                                    <a href="inicio_sesion.html"><div class="reproducir">Reproducir</div></a>
+                                     <a href="inicio_sesion.html"><div class="reproducir">Añadir a la lista</div></a>
                                 </div>
                             </div>
                         </div>
@@ -243,13 +233,12 @@
                 }
             ?>
 
-        </div>
+                </div>
         
         <div class="load-more" id="load-more-4">Cargar más</div>
         <div class="load-less" id="load-less-4">Cargar menos</div>
     </section>
 
-        
     <footer class="footer container">
 
         <h3>PowerStream</h3>
@@ -264,6 +253,6 @@
         <p id="copyright">&copy; 2024 PowerStream</p>           
     </footer>
 
-    <script src="js/premium.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

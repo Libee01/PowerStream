@@ -2,6 +2,14 @@
     session_start();
     $id_usuario = $_SESSION['userid'];
     $plan = $_SESSION['plan'];
+    if ($plan == 'gold')
+    {
+        
+    }
+    else
+    {
+        header("Location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,14 +51,14 @@
                                 while ($row = $result->fetch_assoc()) { 
                         ?>
                                 <?php if($i == 0) { ?>
-                                    <div class="header-1 active" style="background-image:url(php/img/<?php echo $row['img_publi']; ?>);">
+                                    <div class="header-1 active" style="background-image:url(img2/<?php echo $row['img_publi']; ?>);">
 
                                 <?php } else { ?>
-                                <div class="header-1" style="background-image:url(php/img/<?php echo $row['img_publi']; ?>); ">
+                                <div class="header-1" style="background-image:url(img2/<?php echo $row['img_publi']; ?>); ">
                                     <?php } ?>
-                                        <img  src="php/img/<?php echo $row['nom_publi']; ?>">                                  
+                                        <img  src="img2/<?php echo $row['nom_publi']; ?>">                                  
                                         <div>
-                                        <a href="#" class="btn-2">Ver ahora</a> 
+                                        <a class="btn-2" href="reproductor.php?id_video=<?php echo $row['id_video']; ?>">Ver ahora</a>
                                         </div>
                                 </div>
                         <?php 
@@ -75,35 +83,32 @@
     // Verificar si hay resultados de la consulta antes de mostrar los datos
     if ($result_accion->num_rows > 0) { 
             ?>
-                    <div class="box-container">
-            <?php
-                    $i = 0; 
-                    while ($row = $result_accion->fetch_assoc()) { 
-            ?>
-                        <?php if($i == 0) { ?>
-                        <div class="box-1 active">
-                        <?php } else { ?>
-                        <div class="box-1">
-                        <?php } ?>
-                            <div class="content">                                
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                                
-                                <h2><?php echo $row['titulo']; ?></h2>
-                                <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
-                                </div>
+                <div class="box-container">
+                    <?php
+                            $i = 0; 
+                            while ($row = $result_accion->fetch_assoc()) { 
+                    ?>
+                    <div class="box-1 <?php if($i == 0) echo 'active'; ?>">
+                        <div class="content">
+                            <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
+                            <h2><?php echo $row['titulo']; ?></h2>
+                            <div class="opciones">
+                                <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
+                                <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
+                                '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
                             </div>
                         </div>
-            <?php 
-                        $i++; 
+                    </div>
+                <?php 
+                            $i++; 
+                        }
+                ?>
+                        </div> <!-- Cierre de box-container -->
+                <?php
+                    } else {
+                        // Si no hay resultados, mostrar un mensaje alternativo
+                        echo "No se encontraron resultados.";
                     }
-            ?>
-                    </div> <!-- Cierre de box-container -->
-            <?php
-                } else {
-                    // Si no hay resultados, mostrar un mensaje alternativo
-                    echo "No se encontraron resultados.";
-                }
             ?>
 
         </div>
@@ -112,51 +117,7 @@
         <div class="load-less" id="load-less-1">Cargar menos</div>
 
     </section>
-    <section class="movies container">
-        <h2>Peliculas de Drama</h2>
-        <hr>
-        <div id="peliculas-accion" class="box-container-2">
-        <?php 
-    // Incluir el archivo PHP que realiza la consulta SQL
-     
     
-    // Verificar si hay resultados de la consulta antes de mostrar los datos
-    if ($result_drama->num_rows > 0) { 
-            ?>
-                    <div class="box-container">
-            <?php
-                    $i = 0; 
-                    while ($row = $result_drama->fetch_assoc()) { 
-            ?>
-                        <div class="box-2 <?php if($i == 0) echo 'active'; ?>">
-                            <div class="content">                                
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                            
-                                <h2><?php echo $row['titulo']; ?></h2>
-                                <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
-                                </div>
-                            </div>
-                        </div>
-            <?php 
-                        $i++; 
-                    }
-            ?>
-                    </div> <!-- Cierre de box-container -->
-            <?php
-                } else {
-                    // Si no hay resultados, mostrar un mensaje alternativo
-                    echo "No se encontraron resultados.";
-                }
-            ?>
-
-        </div>
-        
-        <div class="load-more" id="load-more-2">Cargar más</div>
-        <div class="load-less" id="load-less-2">Cargar menos</div>
-
-    </section>
-
     <section class="movies container">
         <h2>Peliculas de Terror</h2>
         <hr>
@@ -172,12 +133,13 @@
                     while ($row = $result_terror->fetch_assoc()) { 
             ?>
                         <div class="box-3 <?php if($i == 0) echo 'active'; ?>">
-                            <div class="content">                                
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                                
+                        <div class="content">
+                                <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
                                 </div>
                             </div>
                         </div>
@@ -214,13 +176,15 @@
                     while ($row = $result_romanticas->fetch_assoc()) { 
             ?>
                         <div class="box-4 <?php if($i == 0) echo 'active'; ?>">
-                            <div class="content">                                
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                                
+                        <div class="content">
+                                <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
                                 </div>
+                                
                             </div>
                         </div>
             <?php 
@@ -256,13 +220,15 @@
                     while ($row = $result_comedia->fetch_assoc()) { 
             ?>
                         <div class="box-5 <?php if($i == 0) echo 'active'; ?>">
-                            <div class="content">                                
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                                
+                        <div class="content">
+                                <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
+                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
+                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id_video']; ?>, '<?php echo $row['titulo']; ?>', 
+                                    '<?php echo $row['tipo']; ?>', '<?php echo $row['img_portada']; ?>')">Añadir a la lista</div>
                                 </div>
+                                
                             </div>
                         </div>
             <?php 
@@ -283,62 +249,18 @@
         <div class="load-less" id="load-less-5">Cargar menos</div>
     </section>
 
-
-    <section class="movies container">
-        <h2>Peliculas de Aventuras</h2>
-        <hr>
-        <div id="peliculas-accion" class="box-container-6">
-        <?php 
-    
-    // Verificar si hay resultados de la consulta antes de mostrar los datos
-    if ($result_aventuras->num_rows > 0) { 
-            ?>
-                    <div class="box-container">
-            <?php
-                    $i = 0; 
-                    while ($row = $result_aventuras->fetch_assoc()) { 
-            ?>
-                        <div class="box-6 <?php if($i == 0) echo 'active'; ?>">
-                            <div class="content">                                
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                                
-                                <h2><?php echo $row['titulo']; ?></h2>
-                                <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista(<?php echo $row['id']; ?>, '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Añadir a la lista</div>
-                                </div>
-                            </div>
-                        </div>
-            <?php 
-                        $i++; 
-                    }
-            ?>
-                    </div> <!-- Cierre de box-container -->
-            <?php
-                } else {
-                    // Si no hay resultados, mostrar un mensaje alternativo
-                    echo "No se encontraron resultados.";
-                }
-            ?>
-
-        </div>
-        
-        <div class="load-more" id="load-more-6">Cargar más</div>
-        <div class="load-less" id="load-less-6">Cargar menos</div>
-    </section>
-
     <footer class="footer container">
 
-        <h3>PowerSteam</h3>
+        <h3>PowerStream</h3>
         
         <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Peliculas</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Politica de provacidad</a></li>
-            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="sobre_nosotros.php">Nosotros</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="politica_privacidad.php">Politica de privacidad</a></li>
+            <li><a href="FAQ.php">Preguntas frecuentes</a></li>
         </ul>
-
+        <p id="copyright">&copy; 2024 PowerStream</p>           
     </footer>
 
     <script src="js/gold.js"></script>

@@ -1,3 +1,25 @@
+<?php
+session_start();
+$id_usuario = $_SESSION['userid'];
+$plan = $_SESSION['plan'];
+if ($plan == 'basico')
+{
+    
+}
+elseif ($plan == 'gold')
+{
+    
+}
+elseif ($plan == 'premium')
+{
+    
+}
+else
+{
+    header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +32,9 @@
 <body>
     <?php
     // Verificar si se proporcionó un ID de película
-    if (isset($_GET['id'])) {
+    if (isset($_GET['id_video'])) {
         // Obtener el ID de la película
-        $id_pelicula = $_GET['id'];
+        $id_pelicula = $_GET['id_video'];
 
         $conn = mysqli_connect("localhost", "root", "rootroot")
         or die ("No se puede conectar con el servidor");
@@ -20,7 +42,7 @@
         mysqli_select_db ($conn, "powerstream") or die ("No se puede conectar a la base de datos");
 
         // Consulta para obtener los detalles de la película específica
-        $sql = "SELECT * FROM prueba WHERE id = $id_pelicula";
+        $sql = "SELECT * FROM videos WHERE id_video = $id_pelicula";
         $result = $conn->query($sql);
 
         // Mostrar los detalles de la película
@@ -42,17 +64,24 @@
             echo '        <a href="index.php"><img id="logout" src="img/logout.png"></a>';
             echo '    </div>';
             
-            echo '<div class="header-1" style="background-image:url(php/img/' . $row['img_publi'] . '); ">';
-            echo '<img class="play" src="img/play.png">';
+            echo '<div class="header-1" id="movie-image" style="background-image:url(img2/' . $row['img_publi'] . '); ">';
+            echo '<img class="play" src="img/play.png" onclick="playVideo()">';
             echo '<br>';
-            echo '<img class="nompubli" src="php/img/' . $row['nom_publi'] . '"> ';
+            echo '<img class="nompubli" src="img2/' . $row['nom_publi'] . '"> ';
             echo '</div>';
-            echo '<div class="texto">';
+            echo '<div class="texto" id="movie-details">';
             echo '<h2>' . $row['titulo'] . '</h2>';
             echo '<p>' . $row['descripcion'] . '</p>';
             echo '</div>';
-            
             echo '</header>';
+
+            // Añadir el elemento de video
+            echo '<div class="video-container" id="video-container">';
+            echo '    <video id="video" controls>';
+            echo '        <source src="videos2/' . $row['video'] . '" type="video/mp4">';
+            echo '        Your browser does not support the video tag.';
+            echo '    </video>';
+            echo '</div>';
         } else {
             echo "No se encontraron detalles de la película.";
         }
@@ -63,6 +92,15 @@
     <script>
         function goBack() {
             window.history.back();
+        }
+
+        function playVideo() {
+            document.getElementById('movie-image').classList.add('hidden');
+            document.getElementById('movie-details').classList.add('hidden');
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.style.display = 'block';
+            const video = document.getElementById('video');
+            video.play();
         }
     </script>
 </body>

@@ -25,7 +25,7 @@
     }
     else
     {
-        echo "Algo ha salido mal";
+        header("Location: index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerStream</title>
     <link rel="stylesheet" href="css/premium.css">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon"> <!-- Vincula el icono favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header class="header">
@@ -52,44 +52,11 @@
                 </ul>
             </nav>
             <a href="index.php"><img id="logout" src="img/logout.png"></a>
-        </div>
-        <div class="header-content container slides">
-                <?php 
-            // Incluir el archivo PHP que realiza la consulta SQL
-            include 'php/imageneslista.php'; 
-            
-            // Verificar si hay resultados de la consulta antes de mostrar los datos
-            if ($result->num_rows > 0) { 
-                        ?>
-                                <div class="header-container">
-                        <?php
-                                $i = 0; 
-                                while ($row = $result->fetch_assoc()) { 
-                        ?>
-                                <?php if($i == 0) { ?>
-                                    <div class="header-1 active" style="background-image:url(php/img/<?php echo $row['img_publi']; ?>);">
-
-                                <?php } else { ?>
-                                <div class="header-1" style="background-image:url(php/img/<?php echo $row['img_publi']; ?>); ">
-                                    <?php } ?>
-                                        <img  src="php/img/<?php echo $row['nom_publi']; ?>">                                  
-                                        <div>
-                                        <a href="#" class="btn-2">Ver ahora</a> 
-                                        </div>
-                                </div>
-                        <?php 
-                                    $i++; 
-                                }
-                        ?>
-                                </div> <!-- Cierre de header-container -->
-                        <?php
-                            } else {
-                                // Si no hay resultados, mostrar un mensaje alternativo
-                                echo "No se encontraron resultados.";
-                            }
-                        ?>
+            <!-- Incluir el archivo PHP que realiza la consulta SQL -->
+            <?php include 'php/imageneslista.php'; ?>
         </div>
     </header>
+    <br><br><br>
     <section class="movies container">
         <h2>Películas</h2>
         <hr>
@@ -110,13 +77,13 @@
                         <div class="box-1">
                         <?php } ?>
                             <div class="content">
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">
+                                <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['ID_video']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="QuitardeLista(<?php echo $row['ID_video']; ?>)">Quitar de la lista</div>
-                                </div>
-                                
+                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
+                                    <div class="reproducir" onclick="QuitardeLista(<?php echo $row['id_video']; ?>, <?php echo $row['id_usuario']; ?>)">Quitar de la lista</div>
+
+                                </div>    
                             </div>
                         </div>
             <?php 
@@ -154,14 +121,14 @@
                     while ($row = $result_serie->fetch_assoc()) { 
             ?>
                         <div class="box-2 <?php if($i == 0) echo 'active'; ?>">
-                            <div class="content">
-                                <img id="arriba" src="php/img/<?php echo $row['portada']; ?>" alt="<?php echo $row['titulo']; ?>">                               
+                        <div class="content">
+                                <img id="arriba" src="img2/<?php echo $row['img_portada']; ?>" alt="<?php echo $row['titulo']; ?>">
                                 <h2><?php echo $row['titulo']; ?></h2>
                                 <div class="opciones">
-                                    <a href="reproductor.php?id=<?php echo $row['id']; ?>"><div class="reproducir">Reproducir</div></a>
-                                    <div class="reproducir" onclick="añadirALista('<?php echo $row['id']; ?>', '<?php echo $row['titulo']; ?>', '<?php echo $row['portada']; ?>', '<?php echo $row['categoria']; ?>', '<?php echo $row['img_publi']; ?>')">Quitar de la lista</div>
+                                    <a href="reproductor.php?id_video=<?php echo $row['id_video']; ?>"><div class="reproducir">Reproducir</div></a>
+                                    <div class="reproducir" onclick="QuitardeLista(<?php echo $row['id_video']; ?>, <?php echo  $row['id_usuario']; ?>)">Quitar de la lista</div>
                                 </div>
-                            </div>
+                        </div>
                         </div>
             <?php 
                         $i++; 
@@ -184,17 +151,17 @@
 
     <footer class="footer container">
 
-        <h3>PowerSteam</h3>
+        <h3>PowerStream</h3>
         
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Nosotros</a></li>
             <li><a href="#">Peliculas</a></li>
             <li><a href="#">Contacto</a></li>
-            <li><a href="#">Politica de provacidad</a></li>
+            <li><a href="#">Politica de privacidad</a></li>
             <li><a href="#">Preguntas frecuentes</a></li>
         </ul>
-
+        <p id="copyright">&copy; 2024 PowerStream</p>        
     </footer>
 
     <script src="js/lista.js"></script>

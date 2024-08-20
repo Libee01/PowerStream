@@ -1,3 +1,14 @@
+<?php
+session_start();
+if ($plan == 'admin')
+{
+    
+}
+else
+{
+    header("Location: ../index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,19 +26,16 @@
         session_start();
         var_dump($_POST); // Para ver los datos recibidos del formulario en la consola del navegador
         
-        $id = $_POST['id'];
+        $id = $_POST['id_video'];
         $userid = $_SESSION['userid'];
         $titulo = $_POST['titulo'];
-        $portada = $_POST['portada'];
-        $categoria = $_POST['categoria'];
-        $img_publi = $_POST['img_publi'];
-        $nom_publi = $_POST['nom_publi'];
         $tipo = $_POST['tipo'];
+        $portada = $_POST['img_portada'];      
 
         $conexion = mysqli_connect("localhost", "root", "rootroot") or die ("No se puede conectar con el servidor");
         mysqli_select_db($conexion, "powerstream") or die ("No se puede conectar a la base de datos");
 
-        $query_inicial = "SELECT * FROM lista WHERE ID_video = '$id'";
+        $query_inicial = "SELECT * FROM lista WHERE id_video = '$id' and id_usuario = '$userid'";
         $resultado = mysqli_query($conexion, $query_inicial);
         $coincidencias = mysqli_num_rows($resultado);
         if ($coincidencias > 0) {
@@ -35,7 +43,7 @@
             exit();
         }
         if ($coincidencias == 0) {
-            $query = "INSERT INTO lista (ID_video, ID_usuario, titulo, portada, categoria, img_publi, nom_publi, tipo) VALUES ('$id', '$userid', '$titulo', '$portada', '$categoria', '$img_publi', '$nom_publi', '$tipo')";
+            $query = "INSERT INTO lista (id_video, id_usuario, titulo, tipo, img_portada) VALUES ('$id', '$userid', '$titulo', '$tipo', '$portada')";
 
             if (mysqli_query($conexion, $query)) {
                 echo "Película añadida a tu lista";

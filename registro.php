@@ -1,59 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/mensajes.css">
-    <script src="js/registro.js"></script>
-    <title>Registro usuario</title>
-</head>
-<body>
-<div id="titulo">
-       <a href="../index.php" class="nada" > <img src="../img/logoinmo.png" id="logo"></a>
-    </div> 
-    <div id="php">
-    <?php
-        $email = $_REQUEST['email'];
-        $pass = $_REQUEST['password'];
-        $password_hash = password_hash($pass, PASSWORD_BCRYPT);
-        $plan = $_REQUEST['plan'];
+<?php
 
-        // Generar la fecha actual y la fecha actual más 30 días
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Verificar que los datos se pasaron correctamente
+    if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['plan'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $plan = $_POST['plan'];
+
+        // Generar la fecha actual y la fecha de renovación (30 días después)
         $fecha_actual = date('Y-m-d');
         $fecha_renovacion = date('Y-m-d', strtotime('+30 days'));
+        $pago = 1;
+        // Hash de la contraseña
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-        $conexion = mysqli_connect("localhost", "root", "rootroot")
-        or die ("No se puede conectar con el servidor");
+        // Conexión a la base de datos
+        $servername = "localhost";
+        $username = "root";
+        $password_db = "rootroot";
+        $dbname = "powerstream";
 
-        $email = mysqli_real_escape_string($conexion, $email);
-        $pass = mysqli_real_escape_string($conexion, $pass);
+        $conn = new mysqli($servername, $username, $password_db, $dbname);
 
-        mysqli_select_db ($conexion, "powerstream") or die ("No se puede conectar a la base de datos");
-        $query_inicial = "select * from usuarios where email = '$email'";
-        $resultado = mysqli_query($conexion, $query_inicial);
-        $coincidencias = mysqli_num_rows($resultado);
-        if ($coincidencias > 0) {
-            header("Location: ../index.php?error=correo_ya_registrado!");
-            exit();
+        // Verificar conexión
+        if ($conn->connect_error) {
+            die("Error de conexión: " . $conn->connect_error);
         }
-        if ($coincidencias == 0) {
-            $query = "INSERT INTO usuarios (email, password, plan, fecha_suscripcion, fecha_renovacion) VALUES ('$email', '$password_hash', '$plan', '$fecha_actual', '$fecha_renovacion')";
 
-            if(mysqli_query ($conexion,$query))
-            {
-                echo "<div class='borrado'>Usuario añadido correctamente</div>";
-                echo "<div class='mensaje'><img src='../img/arriba1.png' class='ok'></div>";
-                // Agrega un script de JavaScript para redirigir después de 5 segundos
-                echo "<script>setTimeout(function() { window.location.href = 'index.php'; }, 5000);</script>";
-            }
-            else
-            {
-            echo "Error al registrar al usuario: " . mysqli_error($conexion);
-            echo "<div class='mensaje'><img src='../../img/abajo.png' class='ok'></di>";
-            }
+        // Insertar datos en la base de datos
+        $query = "INSERT INTO usuarios (email, password, plan, fecha_suscripcion, fecha_renovacion,pagado) VALUES ('$email','$password_hash','$plan','$fecha_actual','$fecha_renovacion','$pago')";
+        $stmt = $conn->prepare($query);
+        
+        $stmt->bind_param("sssssi", $email, $password_hash, $plan, $fecha_actual, $fecha_renovacion, $pago_confirmado);
+
+        if ($stmt->execute()) {
+            echo "Usuario registrado y pago confirmado.";
+        } else {
+            echo "Error al registrar al usuario: " . $stmt->error;
         }
-                
-        mysqli_close($conexion);
-        ?>
-    </div>
-</body>
+
+        // Cerrar conexión
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "Datos incompletos.";
+    }
+} else {
+    echo "Acceso no permitido.";
+}
+?>

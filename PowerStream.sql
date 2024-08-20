@@ -8,7 +8,7 @@ use powerstream;
 create table usuarios(
     id_usuario int auto_increment primary key,
     email varchar(50) unique not null,
-    password varchar(30) not null,
+    password varchar(255) not null,
     plan varchar(20) not null,
     fecha_suscripcion date not null,
     fecha_renovacion date not null,
@@ -18,12 +18,12 @@ create table usuarios(
 create table videos(
     id_video int auto_increment primary key,
     titulo varchar(255) unique not null,
-    descripcion varchar(255) not null,
+    descripcion varchar(1024) not null,
     tipo varchar(40) not null,
     genero varchar(50) not null,
     fecha_subida date not null,
-    video varchar(255) unique not null,
-    img_portada varchar(40) not null,   
+    video varchar(255) not null,
+    img_portada varchar(255) not null,   
     img_publi varchar(255) NOT NULL,
     nom_publi varchar(255) NOT NUlL
 );
@@ -31,7 +31,9 @@ create table videos(
 create table lista(
     id_video int references videos(id_video),
     id_usuario int references usuarios(id_usuario),
-    titulo varchar(40) references videos(titulo)
+    titulo varchar(40) references videos(titulo),
+    tipo varchar(40) not null,
+    img_portada varchar(40) not null 
 );
 
 
