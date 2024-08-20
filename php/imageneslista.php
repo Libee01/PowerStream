@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; // Cambia esto por tu servidor MySQL
-$username = "root"; // Cambia esto por tu nombre de usuario de MySQL
-$password = "rootroot"; // Cambia esto por tu contraseña de MySQL
-$database = "powerstream"; // Cambia esto por el nombre de tu base de datos
+$servername = "localhost";
+$username = "root";
+$password = "rootroot";
+$database = "powerstream";
 
 // Extraer el ID de usuario de la sesión
 $userid = $_SESSION['userid'];
