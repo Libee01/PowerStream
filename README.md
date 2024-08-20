@@ -2,22 +2,22 @@
 <br><br>
 ## 📍 INTRODUCCIÓN
 <div align="justify">
-Powerstream es una plataforma de streaming parecida a netflix, en la cual podremos reproducir distintos títulos de varios géneros.
-La plataforma cuenta con un sistema de registro mediante suscripción a uno de nuestros planes, y un inicio de sesión mediante encriptación
-de contraseña almacenada en una base de datos.
-También cuenta con algunas medidas de seguridad para evitar accesos no autorizados a las distintas páginas de la plataforma,
-comprobación de correo válido, encriptación de contraseñas, control de sesiones, etc.
+  Powerstream es una plataforma de streaming parecida a netflix, en la cual podremos reproducir distintos títulos de varios géneros.
+  La plataforma cuenta con un sistema de registro mediante suscripción a uno de nuestros planes, y un inicio de sesión mediante encriptación
+  de contraseña almacenada en una base de datos.
+  También cuenta con algunas medidas de seguridad para evitar accesos no autorizados a las distintas páginas de la plataforma,
+  comprobación de correo válido, encriptación de contraseñas, control de sesiones, etc.
 </div>
 
 <br>
 
 ## 📍 CONTENIDO
 <div align="justify">
-Nuestra plataforma usa una base de datos para guardar los datos de los usuarios y los títulos de nuestra plataforma, en la
-página principal de la plataforma los usuarios pueden ver los títulos disponibles en nuestra plataforma sin necesidad de estar loggeados en ella.
-Para poder disfrutar y reproducir cualquiera de los títulos disponibles en nuestra página, el usuario deberá estar registrado e iniciar sesión.
-La plataforma cuenta con 3 membresías distintas, las cuales ofrecen distintos beneficios, principalmente el número de títulos disponibles para
-su reproducción. Para registrarse el usuario deberá introducir un correo y contraseña, y luego seleccionar una de las membresías para proceder con el pago.
+  Nuestra plataforma usa una base de datos para guardar los datos de los usuarios y los títulos de nuestra plataforma, en la
+  página principal de la plataforma los usuarios pueden ver los títulos disponibles en nuestra plataforma sin necesidad de estar loggeados en ella.
+  Para poder disfrutar y reproducir cualquiera de los títulos disponibles en nuestra página, el usuario deberá estar registrado e iniciar sesión.
+  La plataforma cuenta con 3 membresías distintas, las cuales ofrecen distintos beneficios, principalmente el número de títulos disponibles para
+  su reproducción. Para registrarse el usuario deberá introducir un correo y contraseña, y luego seleccionar una de las membresías para proceder con el pago.
 </div>
 <br>
 
@@ -39,8 +39,14 @@ su reproducción. Para registrarse el usuario deberá introducir un correo y con
 Es ampliamente utilizado en el desarrollo web para crear páginas web dinámicas. Permite la generación de contenido personalizado en función de las interacciones del usuario, como formularios, 
 botones y otras acciones.
 </div>
-<br><br>
+<br>
 
+## 📍 USUARIOS POR DEFECTO
+<div align="justify">
+  Si restauras la copia de seguridad de nuestra base de datos, vendrán por defecto creados 4 usuarios:
+  <br><br>
+  🔸<b>admin@admin.com:</b>
+</div>
 <div align="right">
   © 2024 POWERSTREAM
 </div>
