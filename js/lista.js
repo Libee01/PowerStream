@@ -1,36 +1,3 @@
-var slideIndex = 0;
-var slides = document.getElementsByClassName("slides")[0].getElementsByClassName("header-1");
-var interval;
-
-showSlides();
-
-function showSlides() {
-    for (var i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-
-    slideIndex++;
-    if (slideIndex > slides.length - 1) {slideIndex = 0} // Reiniciar índice si se llega al final
-    
-    slides[slideIndex].style.display = "block";  
-
-    interval = setTimeout(showSlides, 5000); // Cambiar imagen cada 5 segundos
-}
-
-// Detener el deslizamiento automático cuando el puntero está sobre una imagen
-for (var i = 0; i < slides.length; i++) {
-    slides[i].addEventListener("mouseover", stopSlide);
-    slides[i].addEventListener("mouseout", startSlide);
-}
-
-function stopSlide() {
-    clearTimeout(interval);
-}
-
-function startSlide() {
-    interval = setTimeout(showSlides, 5000);
-}
-
 // Cargar más películas de acción
 
 function cargarMasItems(btn, cantidadInicial, claseObjetivo, btnMenosId) {
@@ -72,10 +39,10 @@ cargarMasItems(loadMoreBtn2, 4, "box-container-2 .box-2", "load-less-2");
 
 
 
-function QuitardeLista(id) {
+function QuitardeLista(id_video, id_usuario) {
     // Realizar una solicitud al servidor para eliminar la película de la lista
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "borrar_pelicula.php", true);
+    xhr.open("POST", "borrar_lista.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -84,6 +51,6 @@ function QuitardeLista(id) {
             location.reload();
         }
     };
-    // Enviar datos a borrar_pelicula.php
-    xhr.send("id=" + id);
+    // Enviar datos a borrar_lista.php
+    xhr.send("id_video=" + id_video + "&id_usuario=" + id_usuario);
 }

@@ -84,7 +84,7 @@ cargarMasItems(loadMoreBtn6, 3, "box-container-6 .box-6", "load-less-6");
 
 
 
-function añadirALista(id,titulo, portada, categoria, img_publi) {
+function añadirALista(id_video,titulo, tipo, img_portada) {
     // Realizar una solicitud al servidor para añadir la película a la lista de reproducción
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "guardar_pelicula.php", true);
@@ -95,5 +95,5 @@ function añadirALista(id,titulo, portada, categoria, img_publi) {
         }
     };
     // Enviar datos a guardar_pelicula.php
-    xhr.send("id=" + id + "&titulo=" + titulo + "&portada=" + portada + "&categoria=" + categoria + "&img_publi=" + img_publi);
+    xhr.send("id_video=" + id_video + "&titulo=" + titulo + "&tipo=" + tipo + "&img_portada=" + img_portada);
 }

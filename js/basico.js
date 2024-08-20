@@ -31,7 +31,7 @@ function startSlide() {
     interval = setTimeout(showSlides, 5000);
 }
 
-function añadirALista(id,titulo, portada, categoria, img_publi, nom_publi, tipo) {
+function añadirALista(id_video,titulo, tipo, img_portada) {
     // Realizar una solicitud al servidor para añadir la película a la lista de reproducción
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "guardar_pelicula.php", true);
@@ -42,5 +42,5 @@ function añadirALista(id,titulo, portada, categoria, img_publi, nom_publi, tipo
         }
     };
     // Enviar datos a guardar_pelicula.php
-    xhr.send("id=" + id + "&titulo=" + titulo + "&portada=" + portada + "&categoria=" + categoria + "&img_publi=" + img_publi + "&nom_publi=" + nom_publi + "&tipo=" + tipo);
+    xhr.send("id_video=" + id_video + "&titulo=" + titulo + "&tipo=" + tipo + "&img_portada=" + img_portada);
 }
