@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerStream</title>
+    <link rel="stylesheet" href="../css/dashboard_usuario.css">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"> <!-- Vincula el icono favicon -->
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <a href="dashboard.php" class="logo">PowerStream</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="dashboard.php">Contenido</a></li>
+                    <li><a href="dashboard.php">Usuarios</a></li>
+                </ul>
+            </nav>
+            <a href="../index.php"><img id="logout" src="../img/logout.png"></a>
+        </div>
+    </header>
+    <div id="anadirformulario" class="forms">
+        <div class="login-form2" id="loginForm2">
+            <h2>AÑADIR USUARIO</h2>
+            <div class="titulos">
+                <p class="tit">Email:</p>
+                <p class="tit">Password:</p>
+                <p class="tit">Plan:</p>
+                <p class="tit">Pagado:</p>
+            </div>
+            <div class="inputs">
+                <form action="subirusuario.php" method="POST">
+                    <input type="email" id="email" name="email" required><br>
+                    <input type="password" id="password" name="password" required><br>
+                    <select id="plan" name="plan" required>
+                        <option value="basic">Basic</option>
+                        <option value="gold">Gold</option>
+                        <option value="premium">Premium</option>
+                        <option value="admin">Admin</option>
+                    </select><br>
+                    <select id="pagado" name="pagado" required>
+                        <option value="1">Sí</option>
+                        <option value="0">No</option>
+                    </select><br><br>
+                    <button class="btn-2" type="submit">Añadir Usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

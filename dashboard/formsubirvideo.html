@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerStream</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"> <!-- Vincula el icono favicon -->
+</head>
+<body>
+    <header class="header">
+        <div class="menu container">
+            <a href="dashboard.php" class="logo">PowerStream</a>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="dashboard.php">Contenido</a></li>
+                    <li><a href="dashboard.php">Usuarios</a></li>
+                </ul>
+            </nav>
+            <a href="../index.php"><img id="logout" src="../img/logout.png"></a>
+        </div>
+    </header>
+    <div id="anadirformulario" class="forms">
+        <div class="login-form2" id="loginForm2">
+            <h2>SUBIR VIDEO</h2>
+            <div class="titulos">
+                <p class="tit">Título:</p>
+                <p class="tit">Descripción:</p><br><br><br>
+                <p class="tit">Tipo:</p>
+                <p class="tit">Género:</p>
+                <p class="tit">Archivo de video:</p>
+                <p class="tit">Imagen de portada:</p>
+                <p class="tit">Imagen de publicidad:</p>
+                <p class="tit">Nombre de película:</p>
+            </div>
+            <div class="inputs">
+                <form action="subirvideo.php" method="POST" enctype="multipart/form-data">    
+                    <input type="text" id="titulo" name="titulo">
+                    <textarea id="descripcion" name="descripcion"></textarea><br>
+                    <select id="tipo" name="tipo" required>
+                        <option value="pelicula">Película</option>
+                        <option value="serie">Serie</option>
+                    </select><br>
+                    <select id="genero" name="genero" required>
+                        <option value="accion">Acción</option>
+                        <option value="terror">Terror</option>
+                        <option value="romantica">Romántica</option>
+                        <option value="comedia">Comedia</option>
+                    </select><br>
+                    <input type="file" id="video" name="video">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="9999999">
+                    <input type="file" id="portada" name="portada">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="9999999">
+                    <input type="file" id="publi" name="publi">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="9999999">
+                    <input type="file" id="nom_publi" name="nom_publi"><br><br>
+                    <button class="btn-2" type="submit">Subir vídeo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+</body>
+</html>
