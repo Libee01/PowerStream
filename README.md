@@ -39,4 +39,9 @@ su reproducción. Para registrarse el usuario deberá introducir un correo y con
 Es ampliamente utilizado en el desarrollo web para crear páginas web dinámicas. Permite la generación de contenido personalizado en función de las interacciones del usuario, como formularios, 
 botones y otras acciones.
 </div>
+<br><br>
+
+<div align="right">
+  © 2024 POWERSTREAM
+</div>
 
