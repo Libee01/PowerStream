@@ -365,3 +365,7 @@ hr{
     color: #ffffff;
     border: 2px grey solid;
 }
+
+#copyright {
+    font-size: 1.75em;
+}

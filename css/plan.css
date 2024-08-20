@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+body {
+    background-image: url(../img/fondointenso.jpg);
+    margin: 0;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+    padding: 0;
+    color: #fff;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+section {
+    padding: 20px;
+    color: #fff;
+}
+
+.planes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.plan-wrapper {
+    width: 30%;
+    margin-bottom: 20px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.plan {
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    color: #fff;
+}
+
+.plan a {
+    color:white;
+}
+
+.plan h2 {
+    margin-bottom: 10px;
+}
+
+.plan .gold {
+    color:rgb(255, 166, 0);
+}
+
+.plan .precio {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.plan ul.caracteristicas {
+    list-style: none;
+    padding: 0;
+    color: #fff;
+}
+
+.plan ul.caracteristicas li {
+    margin-bottom: 10px;
+}
+
+.comparacion h2 {
+    text-align: center;
+    font-size: 2em;
+}
+.comparacion .contenedor-tabla {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.comparacion table {
+    width: 100%;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.comparacion th, .comparacion td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 1.25em;
+}
+
+.comparacion th {
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.comparacion .comparacion-celda-centro {
+    text-align: center;
+}
+
+footer {
+    margin-top: 2em;
+    text-align: right;
+    margin-right: 2em;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+gold {
+    color:rgb(255, 166, 0);
+}
+
+button.boton {
+    background-color: #FF2F28;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button.boton:hover {
+    background-color: #cfcfcf;
+    color: #FF2F28;
+}
+
+.premium {
+    color: rgb(255, 18, 18);
+}
+
+.contenedor-tabla .basic {
+    text-align: center;
+}
+.contenedor-tabla .premium {
+    color: rgb(255, 18, 18);
+    text-align: center;
+}
+
+.contenedor-tabla .gold {
+    color:rgb(255, 166, 0);
+    text-align: center;
+}

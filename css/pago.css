@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+body{
+    background-image: url(../img/fondointenso.jpg);
+    font-family: "Bebas Neue", sans-serif;
+    color: #FFFFFF;
+    
+}
+
+
+h1{
+    font-size: 45px;
+    margin-top: 5%;
+    text-align: center;
+
+}
+#datos{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    text-align: center;
+    border: 0px solid red;
+    width: 30%;
+    margin-left: 38%;
+}
+
+p{
+    text-align: justify;
+    padding: 8px;
+    font-size: 30px;
+}
+
+#paypal-button-container{
+    align-items: center;
+    margin-left: 29%;
+    border: 0px solid red;
+    width: 50em;
+}
+
+
+#copyright {
+    font-size: 1.75em;
+}

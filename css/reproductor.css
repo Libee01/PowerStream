@@ -118,21 +118,22 @@ body{
     font-size: 1.3em;
 }
 
-.play{
+.play {
     width:5em;
     margin-top: 19em;
     border:solid green 0px;
+    cursor: pointer;
 
 }
 
-.nompubli{
+.nompubli {
     width:20em;
     margin-top: 5em;
     margin-right: 70em;
     clear:both;
 }
 
-.btn-1{
+.btn-1 {
     display: inline-block;
     padding: 7px 20px;
     background-color: #FF2F28;
@@ -142,7 +143,7 @@ body{
 
 }
 
-.btn-2{
+.btn-2 {
     width: 110px;
     display: inline-block;
     padding: 7px 21px;
@@ -153,22 +154,47 @@ body{
     border-radius: 0.5em;
 
 }
-.btn-2:hover{
+
+.btn-2:hover {
     background-color: #cfcfcf;
     color: #FF2F28;
 }
-.movies{
+
+.movies {
     padding: 50px 0 0 0;
     display: flex;
     flex-direction: column;
 }
-h2{
+
+h2 {
     font-size: 35px;
     margin-bottom: 20px;
 
 }
-hr{
+
+hr {
     border: 1px solid #FF2F28;
     width: 100%;
     margin-bottom: 40px;
+}
+
+.hidden {
+    display: none;
+}
+
+.video-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: black;
+    z-index: 1000;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
 }
