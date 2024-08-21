@@ -58,7 +58,7 @@ CREATE TABLE `usuarios` (
   `pagado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'admin@admin.com','$2y$10$NPNmtnCVwDba8Xk0sVMpXuDKl1XFcQh6ereKMLnqsJhFIKA03a5Ly','admin','2024-06-08','2024-07-08',1),(2,'premium@premium.premium','$2y$10$FdvM4WP.7eo5a/MuDmMBJeg1ch9iEatkGWl710uxAfMa8E3/.hCne','premium','2024-06-09','2024-07-09',1),(3,'basico@basico.basico','$2y$10$riNWaGgd0Q5Pmm21EbH76uQINbujGbCNBg1ccEBW/h8dzy8ddQrqu','basico','2024-06-12','2024-07-12',1),(4,'prueba@prueba.prueba','$2y$10$IEi.pZ3PJLlsQlVou8Wfheuhysv4kXGcqbEixkH8F3fmSmqJx038O','gold','2024-08-06','2024-09-05',1);
+INSERT INTO `usuarios` VALUES (1,'admin@admin.admin','$2y$10$c596DdpfSe1wNDbLQkQm2uhGIBAaLy7yNqP1QCm7zZXznfwYnlhia','admin','2024-08-21','2024-09-20',1),(2,'basico@basico.basico','$2y$10$riNWaGgd0Q5Pmm21EbH76uQINbujGbCNBg1ccEBW/h8dzy8ddQrqu','basico','2024-06-12','2024-07-12',1),(3,'gold@gold.gold','$2y$10$3eDx1KRcAEWhMob3.yKzF.k02avn27fseG6rwHz2k40FhFymiMK9m','gold','2024-08-21','2024-09-20',1),(4,'premium@premium.premium','$2y$10$FdvM4WP.7eo5a/MuDmMBJeg1ch9iEatkGWl710uxAfMa8E3/.hCne','premium','2024-06-09','2024-07-09',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-20 13:46:23
+-- Dump completed on 2024-08-21  8:56:09
