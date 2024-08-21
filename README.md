@@ -43,9 +43,17 @@ botones y otras acciones.
 
 ## 📍 USUARIOS POR DEFECTO
 <div align="justify">
-  Si restauras la copia de seguridad de nuestra base de datos, vendrán por defecto creados 4 usuarios:
+  En esta lista están los usuarios seguidos de sus respectivas contraseñas (Ejemplo: ejemplo@ejemplo.com: mi_contraseña)
   <br><br>
-  🔸<b>admin@admin.com:</b>
+  Si restauras la copia de seguridad de nuestra base de datos, vendrán por defecto creados 4 usuarios:  
+  <br><br>
+  🔸admin@admin.com: admin
+  <br><br>
+  🔸basico@basico.basico: basico
+  <br><br>
+  🔸gold@gold.gold: golden
+  <br><br>
+  🔸premium@premium.premium: premium
 </div>
 <div align="right">
   © 2024 POWERSTREAM
