@@ -47,13 +47,13 @@ botones y otras acciones.
   <br><br>
   Si restauras la copia de seguridad de nuestra base de datos, vendrán por defecto creados 4 usuarios:  
   <br><br>
-  🔸admin@admin.com: admin
+  🔸admin@admin.com: admin  -> membresía: admin
   <br><br>
-  🔸basico@basico.basico: basico
+  🔸basico@basico.basico: basico   -> membresía: básico
   <br><br>
-  🔸gold@gold.gold: golden
+  🔸gold@gold.gold: golden   -> membresía: gold
   <br><br>
-  🔸premium@premium.premium: premium
+  🔸premium@premium.premium: premium  -> membresía: premium
 </div>
 <div align="right">
   © 2024 POWERSTREAM
