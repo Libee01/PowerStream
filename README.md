@@ -36,8 +36,11 @@
   utiliza en una variedad de entornos fuera del navegador, como Node.js, Apache CouchDB y Adobe Acrobat.
 <br><br>
 🔸<b>PHP:</b> PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML.
-Es ampliamente utilizado en el desarrollo web para crear páginas web dinámicas. Permite la generación de contenido personalizado en función de las interacciones del usuario, como formularios, 
-botones y otras acciones.
+  Es ampliamente utilizado en el desarrollo web para crear páginas web dinámicas. Permite la generación de contenido personalizado en función de las interacciones del usuario, como formularios, 
+  botones y otras acciones.
+<br><br>
+🔸<b>SQL:</b> SQL (Structured Query Language) es un lenguaje diseñado para administrar y recuperar información almacenada en bases de datos, existen muchos sistemas de gestión
+  de bases de datos, todos son similares pero algunos están mas orientados para actividades mas específicas. Para este proyecto hemos utilizado MySQL.
 </div>
 <br>
 
